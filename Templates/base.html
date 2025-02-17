@@ -1,0 +1,30 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+	{% include "header_references.html" %}
+	
+	<body>
+
+		{% block header_components %}
+		{% include "header_components.html" %}
+		{% endblock %}
+
+
+		
+		{% block content %}
+
+		{% endblock %}
+
+		
+
+		{% block footer_components %}
+		{% include "footer_components.html" %}
+		{% endblock %}
+		{% include "footer_references.html" %}
+
+
+	</body>
+
+</html>
