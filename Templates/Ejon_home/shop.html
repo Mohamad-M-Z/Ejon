@@ -85,7 +85,7 @@
 					{% for product in object_list %}
 					<!-- Start Column 1 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="{% url 'detail' %}">
+						<a class="product-item" href="{% url 'Ejon:detail' product.id %}">
 							<img src="{{ product.Photo.url }}" class="img-fluid product-thumbnail">
 							<h3 class="product-title">{{ product.subject }}</h3>
 							<strong class="product-price">${{ product.price }}</strong>

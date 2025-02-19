@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Ejon_Home',
     'Ejon_blog',
+    'Ejon_cart',
 
 ]
 
