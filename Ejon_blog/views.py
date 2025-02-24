@@ -11,6 +11,7 @@ class BlogView(ListView):
 
 
 class BlogDetailView(DetailView):
-    context_object_name = 'blog'
     model = Blog
+    context_object_name = 'blog'
+
 

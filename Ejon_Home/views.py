@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, View
 from .models import Product, Cart
 from .forms import ContactForm, ProductForm
 from django.views.generic.edit import FormView
@@ -10,7 +10,8 @@ from django.urls import reverse
 
 
 
-class Home(TemplateView):
+class Home(ListView):
+    model = Product
     template_name = 'Ejon_home/home.html'
 
 

@@ -37,9 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # there is a package for django 
+    'sorl.thumbnail', 
+
+    # there is a apps
+
     'Ejon_Home',
     'Ejon_blog',
     'Ejon_cart',
+    
 
 ]
 

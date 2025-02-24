@@ -1,7 +1,6 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from Ejon_Home.models import Cart, Product
-
-
+from django.views.generic import DeleteView, CreateView
 # Create your views here.
 
 
@@ -22,9 +21,16 @@ def add_to_cart(request, product_id):
     return  redirect('Cart:cart-view')
 
 
-def remove_cart(request, item_id):
-    product = Product.objects.get(pk=item_id)
-    cart = Cart.objects.get(product=product, user=request.user)
-    cart.quantity -= 1
-    cart.delete()
-    return redirect('/')
+# class CartCreateView(CreateView):
+#     model = Cart
+#     fields = ['quantity',  'id']
+#     success_url = '/'
+
+
+
+
+
+class CartDeleteView(DeleteView):
+    model = Cart
+    success_url = '/cart/'
+

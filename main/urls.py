@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('Ejon_Home.urls')),
     path('', include('Ejon_blog.urls')),
     path('', include('Ejon_cart.urls')),
+    path('', include('Ejon_account.urls')),
 ]
 
 urlpatterns +=  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

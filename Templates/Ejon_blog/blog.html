@@ -43,7 +43,7 @@
 								<h3><a href="">{{ blog.title }}</a></h3>
 								<a href="{% url 'detail-blog' pk=blog.pk %}">detail blog</a>
 								<div class="meta">
-									<span>by <a href="">{{ blog.Author }}</a></span> <span>on <a href="">{{ blog.created_date }}</a></span>
+									<span>by <a href="">{{ blog.Author }}</a></span> <span>on <a href="">{{ blog.created_date | date:"D d M Y" }}</a></span>
 								</div>
 								
 							</div>
