@@ -31,3 +31,17 @@ def logout_view(request):
     logout(request)
     return redirect('/')
 
+
+def signup_view(request):
+    if not request.user.is_authenticated:
+        if request.method == 'POST':
+            form = UserCreationForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('login-view')
+        form = UserCreationForm()
+        context = {"form":form}
+        return render(request,'Ejon_account/signup.html',context)
+    else:
+        redirect('/')
+
