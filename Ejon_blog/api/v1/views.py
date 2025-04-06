@@ -21,10 +21,18 @@ def Bloglist(request):
 
 
 
-@api_view()
+@api_view(["GET", "PUT", "DELETE"])
 def BlogDetail(request, id):
-    
     blog = get_object_or_404(Blog ,pk=id, status=True)
-    serialize = PostSerializers(blog)
-    return Response(serialize.data)
+    if request.method == "GET":
+        serialize = PostSerializers(blog)
+        return Response(serialize.data)
+    elif request.method == "PUT":
+        serializer = PostSerializers(blog, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+    elif request.method == "DELETE":
+        blog.delete()
+        return Response("itme deleted", status=status.HTTP_204_NO_CONTENT)
  
