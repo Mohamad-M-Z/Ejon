@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # there is a package for django 
     'sorl.thumbnail', 
+    'rest_framework',
 
     # there is a apps
 

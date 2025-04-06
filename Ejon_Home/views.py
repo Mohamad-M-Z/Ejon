@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, View
 from .models import Product, Cart
+from Ejon_blog.models import Blog
 from .forms import ContactForm, ProductForm
 from django.views.generic.edit import FormView
 from django.views.generic.edit import FormMixin
@@ -26,6 +27,9 @@ class services(TemplateView):
 class ListView(ListView):
     model = Product
     template_name = "Ejon_home/shop.html"
+    paginate_by  = 3
+
+
 
 
 class contactView(FormView):
@@ -45,14 +49,22 @@ class detail_view(FormMixin, DetailView):
     form_class = ProductForm
     context_object_name = "product"
 
+    # def get_context_data(self, **kwargs):
+    #     Similar_item = Product.objects.filter()
+    #     context = {'Similar_item': Similar_item}
+    #     return context
 
-    def get_success_url(self):
-        return reverse('detail', kwargs={'pk': self.object.id})
 
-    def get_context_data(self, **kwargs):
-        context = super(detail_view, self).get_context_data(**kwargs)
-        context['form'] = ProductForm(initial={'count': self.object})
-        return context
+    
+
+
+    # def get_success_url(self):
+    #     return reverse('detail', kwargs={'pk': self.object.id})
+
+    # def get_context_data(self, **kwargs):
+    #     context = super(detail_view, self).get_context_data(**kwargs)
+    #     context['form'] = ProductForm(initial={'quantity': self.object})
+    #     return context
 
     def form(self, request, *args, **kwargs):
         self.object = self.get_object()

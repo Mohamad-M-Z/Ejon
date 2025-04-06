@@ -76,15 +76,22 @@
   
             <hr />
 
-            <form method="post" action="{% url 'Ejon:detail' product.id %}">
+            {% comment %} <form method="post" action="{% url 'Ejon:detail' product.id %}">
               {% csrf_token %}
+
+              <div class="input-group mb-3" style="width: 170px;">
+                <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon1" data-mdb-ripple-color="dark">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <input name="quantity" type="count" class="form-control text-center border border-secondary" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" />
+                <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon2" data-mdb-ripple-color="dark">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
 
               
 
-              {{ form.as_p }}
 
-{% comment %} 
-  
            <div class="row mb-4">
               <div class="col-md-4 col-6">
                 <label class="mb-2">Size</label>
@@ -103,12 +110,12 @@
                   </button>
                 </div>
               </div>
-            </div>  {% endcomment %}
+            </div>  
 
         
           
           
-          </form>
+          </form>  {% endcomment %}
             
             <a href="#" class="btn btn-warning shadow-0"> Buy now </a>
             <a href="{% url 'Cart:add-cart' product.id  %}" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Add to cart </a>
@@ -121,7 +128,7 @@
   <!-- content -->
  
   
-  <section class="bg-light border-top py-4">
+  {% comment %} <section class="bg-light border-top py-4">
     <div class="container">
       <div class="row gx-4">
         <div class="col-lg-8 mb-4">
@@ -270,7 +277,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> {% endcomment %}
 
 </br>
 </br>
