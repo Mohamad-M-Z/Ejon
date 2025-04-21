@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # there is a package for django 
     'sorl.thumbnail', 
     'rest_framework',
+    'django_filters',
 
     # there is a apps
 
@@ -139,3 +140,11 @@ MEDIA_URL = "/image/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# rest_framework setting 
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
